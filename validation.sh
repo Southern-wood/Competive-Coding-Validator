@@ -115,7 +115,7 @@
         type="timeMeasure"
         ;;
       v)
-        if [ "$type" -eq "timeMeasure" ]; then
+        if [ "$type" = "timeMeasure" ]; then
           echo "can't specify -t and -v at the same time"
           exit 1
         fi
@@ -172,14 +172,28 @@
   fi
 
   if [ "$type" = "timeMeasure" ]; then
-    echo "$type start"
     echo "std: $std.cpp"
     echo "generator: $generator.py"
     echo "maxTestCase: $maxTestCase"
     timeMeasure
   elif [ "$type" = "validate" ]; then
+    echo "std: $std.cpp"
+    echo "brute: $brute.cpp"
+    echo "generator: $generator.py"
+    echo "maxTestCase: $maxTestCase"
     validate
   else 
     echo "need to specify -t or -v, use -h to show help"
     exit 1
   fi
+
+  # clean
+
+  rm -f "$std" "$brute"
+  if [ "$type" = "timeMeasure" ]; then
+    rm -f input.txt output.txt answer.txt
+  elif [ $cnt -eq $maxTestCase ]; then
+    rm -f input.txt output.txt answer.txt
+  fi
+
+
