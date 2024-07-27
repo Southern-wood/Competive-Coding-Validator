@@ -9,6 +9,23 @@ which is useful for competitive programming.
 - `g++` (GNU C++ compiler, version 8 or higher to support C++20)
 - `python3` (Python 3)
 
+## Download
+
+For this project, you can simplely download the script by running the following command in the terminal.
+
+```bash
+wget https://github.com/Southern-wood/Competive-Coding-Validator/blob/main/validation.sh
+chmod +x validation.sh
+```
+
+Or you can clone the repository by running the following command in the terminal.
+
+```bash
+git clone git@github.com:Southern-wood/Competive-Coding-Validator.git
+cd Competive-Coding-Validator
+chmod +x validation.sh
+```
+
 ## Usage
 
 ```bash
